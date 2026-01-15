@@ -14,13 +14,17 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
 
 ## � Screenshots
 
-| Authentication Page | Landing Page |
+| Landing Page | Upload Section |
 | :---: | :---: |
-| ![Auth Page](./ai-resume-analyzer-main/public/screenshots/auth.png) | ![Home Page](./ai-resume-analyzer-main/public/screenshots/home.png) |
+| ![Home Page](./ai-resume-analyzer-main/public/screenshots/home.png) | ![Upload Page](./ai-resume-analyzer-main/public/screenshots/upload.png) |
 
-| Upload Section | Analysis Report |
+| Sign In | Sign Up |
 | :---: | :---: |
-| ![Upload Page](./ai-resume-analyzer-main/public/screenshots/upload.png) | ![Analysis Page](./ai-resume-analyzer-main/public/screenshots/analysis.png) |
+| ![Sign In](./ai-resume-analyzer-main/public/screenshots/signin.png) | ![Sign Up](./ai-resume-analyzer-main/public/screenshots/signup.png) |
+
+| Analysis Results |
+| :---: |
+| ![Analysis Page](./ai-resume-analyzer-main/public/screenshots/analysis.png) |
 
 ## �🛠️ Tech Stack
 
