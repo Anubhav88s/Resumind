@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Premium Dark Palette */
+  --color-primary: #6366f1;
+  /* Indigo 500 */
+  --color-primary-hover: #4f46e5;
+  /* Indigo 600 */
+  --color-secondary: #8b5cf6;
+  /* Violet 500 */
+
+  --color-dark-bg: #020617;
+  /* Slate 950 */
+  --color-dark-surface: #0f172a;
+  /* Slate 900 */
+  --color-dark-card: #1e293b;
+  /* Slate 800 */
+
+  --color-text-primary: #f8fafc;
+  /* Slate 50 */
+  --color-text-secondary: #94a3b8;
+  /* Slate 400 */
+  --color-text-tertiary: #64748b;
+  /* Slate 500 */
+
+  --color-divider: #1e293b;
+  /* Slate 800 */
+
+  --shadow-glow: 0 0 20px -5px rgba(99, 102, 241, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+html,
+body {
+  @apply bg-dark-bg text-text-primary font-sans antialiased min-h-screen selection:bg-primary selection:text-white;
+}
+
+main {
+  @apply min-h-screen w-full;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-tight font-semibold text-white;
+}
+
+p {
+  @apply text-text-secondary leading-relaxed;
+}
+
+/* Dark Glassmorphism */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-glass);
+  @apply rounded-2xl transition-all duration-300 hover:translate-y-[-2px] hover:shadow-glow hover:border-primary/30;
+}
+
+/* Inputs & Forms */
+label {
+  @apply block text-sm font-medium text-text-secondary mb-2 ml-1;
+}
+
+input,
+textarea,
+select {
+  @apply w-full px-5 py-3 rounded-xl bg-dark-surface border border-gray-800 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200 placeholder:text-gray-600 text-white shadow-sm hover:border-gray-700;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95 bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:from-indigo-500 hover:to-violet-500 shadow-lg shadow-indigo-900/40;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95 bg-dark-surface text-white border border-gray-700 hover:bg-dark-card hover:border-gray-600 shadow-sm;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95 bg-transparent text-text-secondary hover:text-white hover:bg-white/5;
+}
+
+/* Gradients & Text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400;
+}
+
+.bg-mesh {
+  background-color: #020617;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(139, 92, 246, 0.1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0, transparent 50%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@layer components {
+  .navbar {
+    @apply sticky top-4 z-50 mx-auto max-w-6xl rounded-full flex items-center justify-between px-6 py-3 mt-4;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10;
+  }
+
+  .uploader-zone {
+    @apply border-2 border-dashed border-gray-700 rounded-3xl p-10 cursor-pointer transition-colors duration-200 bg-dark-surface/50 hover:bg-dark-surface hover:border-primary/50 flex flex-col items-center justify-center text-center;
+  }
+
+  .uploader-zone.active {
+    @apply border-primary bg-primary/10;
+  }
+
+  .resume-card-modern {
+    @apply relative overflow-hidden bg-dark-surface rounded-3xl p-6 shadow-sm border border-gray-800 hover:shadow-glow hover:border-primary/30 transition-all duration-300 h-full flex flex-col;
+  }
+}
