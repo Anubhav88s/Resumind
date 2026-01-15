@@ -12,21 +12,24 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
 - **User Dashboard**: Keep track of your analysis history and access past reports instantly.
 - **Premium UI**: Modern dark-themed interface with glassmorphism effects and responsive design.
 
-## � Screenshots
+## 🖼️ Screenshots
 
-| Landing Page | Upload Section |
-| :---: | :---: |
-| ![Home Page](./ai-resume-analyzer-main/public/screenshots/home.png) | ![Upload Page](./ai-resume-analyzer-main/public/screenshots/upload.png) |
+### 🏠 Landing Page
+![Home Page](./ai-resume-analyzer-main/public/screenshots/home.png)
 
-| Sign In | Sign Up |
-| :---: | :---: |
-| ![Sign In](./ai-resume-analyzer-main/public/screenshots/signin.png) | ![Sign Up](./ai-resume-analyzer-main/public/screenshots/signup.png) |
+### 🔑 Authentication (Sign In)
+![Sign In](./ai-resume-analyzer-main/public/screenshots/signin.png)
 
-| Analysis Results |
-| :---: |
-| ![Analysis Page](./ai-resume-analyzer-main/public/screenshots/analysis.png) |
+### 📝 Authentication (Sign Up)
+![Sign Up](./ai-resume-analyzer-main/public/screenshots/signup.png)
 
-## �🛠️ Tech Stack
+### 📤 Resume Upload Flow
+![Upload Page](./ai-resume-analyzer-main/public/screenshots/upload.png)
+
+### 📊 AI Analysis Report
+![Analysis Page](./ai-resume-analyzer-main/public/screenshots/analysis.png)
+
+## 🛠️ Tech Stack
 
 ### Frontend
 - **Framework**: React 19 (Vite)
@@ -101,7 +104,7 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
    ```bash
    npm run dev
    ```
-4. Open the app at `http://localhost:5173`.
+10. Open the app at `http://localhost:5173`.
 
 ## 🛡️ Security & Privacy
 - Resumes are stored locally in the `uploads/` folder and can be managed/deleted.
