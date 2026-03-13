@@ -20,7 +20,7 @@ export function meta() {
  * @returns {JSX.Element} The rendered Home page.
  */
 export default function Home() {
-  const { auth, kv } = useAuthStore();
+  const { auth } = useAuthStore();
   const navigate = useNavigate();
   const [resumes, setResumes] = useState([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
@@ -28,23 +28,6 @@ export default function Home() {
   useEffect(() => {
     if (!auth.isAuthenticated) navigate('/auth?next=/');
   }, [auth.isAuthenticated])
-
-  useEffect(() => {
-    const loadResumes = async () => {
-      setLoadingResumes(true);
-
-      const resumes = await kv.list('resume:*', true);
-
-      const parsedResumes = resumes?.map((resume) => (
-        JSON.parse(resume.value)
-      ))
-
-      setResumes(parsedResumes || []);
-      setLoadingResumes(false);
-    }
-
-    loadResumes()
-  }, []);
 
   return <main className="relative z-10">
     <Navbar />

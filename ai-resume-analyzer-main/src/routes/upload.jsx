@@ -15,7 +15,7 @@ import { prepareInstructions } from "~/lib/analysis";
  * @returns {JSX.Element} The rendered Upload page.
  */
 const Upload = () => {
-    const { auth, isLoading, fs, ai, kv } = useAuthStore();
+    const { auth, isLoading, fs, ai } = useAuthStore();
     const navigate = useNavigate();
     const [isProcessing, setIsProcessing] = useState(false);
     const [statusText, setStatusText] = useState('');
@@ -55,7 +55,7 @@ const Upload = () => {
             companyName, jobTitle, jobDescription,
             feedback: '',
         }
-        // Removed kv.set as requested ("dont need to save resume any where")
+
 
         setStatusText('Analyzing...');
 
@@ -68,7 +68,7 @@ const Upload = () => {
         const feedbackText = typeof feedback.message.content === 'string' ? feedback.message.content : feedback.message.content[0].text;
 
         data.feedback = JSON.parse(feedbackText);
-        // Removed kv.set as requested
+
         setStatusText('Analysis complete, redirecting...');
         // Cleanup files from backend as requested
         // await fs.delete(data.resumePath);

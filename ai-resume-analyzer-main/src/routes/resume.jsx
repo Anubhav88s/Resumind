@@ -21,7 +21,7 @@ export const meta = () => ([
  * @returns {JSX.Element} The rendered Resume Review page.
  */
 const Resume = () => {
-    const { auth, isLoading, fs, kv } = useAuthStore();
+    const { auth, isLoading, fs } = useAuthStore();
     const { id } = useParams();
     const [imageUrl, setImageUrl] = useState('');
     const [resumeUrl, setResumeUrl] = useState('');
@@ -39,15 +39,9 @@ const Resume = () => {
         const loadResume = async () => {
             let data;
 
-            // Try to get data from navigation state first (ephemeral)
+            // Get data from navigation state
             if (location.state) {
                 data = location.state;
-            } else {
-                // Fallback to KV if state is missing (though KV write was removed in upload)
-                const resume = await kv.get(`resume:${id}`);
-                if (resume) {
-                    data = JSON.parse(resume);
-                }
             }
 
             if (!data) return;

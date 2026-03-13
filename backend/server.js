@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import fsRoutes from './routes/fsRoutes.js';
-import kvRoutes from './routes/kvRoutes.js';
+
 import aiRoutes from './routes/aiRoutes.js';
 
 dotenv.config();
@@ -38,7 +38,7 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/fs', fsRoutes);
-app.use('/api/kv', kvRoutes);
+
 app.use('/api/ai', aiRoutes);
 
 app.listen(PORT, () => {

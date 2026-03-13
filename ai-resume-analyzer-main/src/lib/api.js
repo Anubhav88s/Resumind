@@ -146,31 +146,6 @@ export const useAuthStore = create((set, get) => {
         ]);
     };
 
-    // --- KV ---
-    const getKV = async (key) => {
-        const res = await fetch(`/api/kv/${key}`);
-        if (res.status === 404 || !res.ok) return null;
-        return await res.json();
-    };
-
-    const setKV = async (key, value) => {
-        await fetch('/api/kv', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ key, value })
-        });
-        return true;
-    };
-
-    const listKV = async (pattern, returnValues) => {
-        const res = await fetch(`/api/kv/list?pattern=${pattern}&returnValues=${returnValues}`);
-        return await res.json();
-    };
-
-    const flushKV = async () => {
-        return true;
-    };
-
     // --- INIT ---
     const init = () => {
         checkAuthStatus();
@@ -202,13 +177,6 @@ export const useAuthStore = create((set, get) => {
             chat,
             feedback,
             img2txt: async () => "",
-        },
-        kv: {
-            get: getKV,
-            set: setKV,
-            delete: async () => true,
-            list: listKV,
-            flush: flushKV,
         },
         init,
         clearError: () => set({ error: null }),
