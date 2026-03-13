@@ -44,7 +44,7 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
 - **Database**: MongoDB (Mongoose)
 - **AI Engine**: Google Generative AI (Gemini Pro)
 - **File Handling**: Multer (Local Disk Storage)
-- **Security**: JSON Web Tokens (JWT) & bcryptjs
+- **Security**: JSON Web Tokens (JWT), bcryptjs, Helmet & express-rate-limit
 
 ## 📁 Project Structure
 
@@ -62,6 +62,7 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
 │
 └── backend/                 # Backend (Node.js + Express)
     ├── controllers/         # API logic (Auth, AI, File System)
+    ├── middleware/          # Custom middleware (Rate Limiter)
     ├── models/              # Database schemas (User)
     ├── routes/              # API endpoints
     ├── uploads/             # Temporary storage for resumes
@@ -107,9 +108,11 @@ Resumind is a state-of-the-art web application designed to help job seekers opti
 10. Open the app at `http://localhost:5173`.
 
 ## 🛡️ Security & Privacy
-- Resumes are stored locally in the `uploads/` folder and can be managed/deleted.
-- Authentication is handled via stateless JWT tokens stored securely on the client side.
-- AI analysis is performed using transient payloads to ensure data privacy where possible.
+- **Helmet**: Sets secure HTTP headers (Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security, etc.) to protect against common web vulnerabilities.
+- **Rate Limiting**: Login and Signup endpoints are rate-limited to **10 requests per 15-minute window** per IP to prevent brute-force and credential-stuffing attacks.
+- **Authentication**: Handled via stateless JWT tokens stored securely on the client side, with passwords hashed using bcryptjs.
+- **Resume Storage**: Resumes are stored locally in the `uploads/` folder and can be managed/deleted.
+- **AI Privacy**: Analysis is performed using transient payloads to ensure data privacy where possible.
 
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
